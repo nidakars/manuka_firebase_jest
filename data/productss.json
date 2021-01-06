@@ -1,0 +1,70 @@
+[{
+        "id": 13401,
+        "title": "EKOSE ASTARLI CEKET MAVİ",
+        "image": [
+            "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg",
+            "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15903-33-O.jpg",
+            "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15904-33-O.jpg",
+            "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15905-33-O.jpg"
+        ],
+        "price": 191.91,
+        "oldprice": 219.90,
+        "category": [
+            "giyim",
+            "ceket"
+        ],
+        "size": [
+            "1",
+            "2"
+
+        ]
+
+    },
+    {
+        "id": 13402,
+        "title": "EKOSE ASTARLI CEKET MAVİ",
+        "image": ["https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg"],
+        "price": 191.91,
+        "oldprice": 219.90,
+        "category": [
+            "giyim",
+            "ceket"
+        ],
+        "size": [
+            "1",
+            "2"
+
+        ]
+    }, {
+        "id": 13403,
+        "title": "EKOSE ASTARLI CEKET MAVİ",
+        "image": ["https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg"],
+        "price": 191.91,
+        "oldprice": 219.90,
+        "category": [
+            "giyim",
+            "ceket"
+        ],
+        "size": [
+            "1",
+            "2"
+
+        ]
+    }, {
+        "id": 13404,
+        "title": "EKOSE ASTARLI CEKET MAVİ",
+        "image": ["https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg"],
+        "price": 191.91,
+        "oldprice": 219.90,
+        "category": [
+            "giyim",
+            "ceket"
+        ],
+        "size": [
+            "1",
+            "2"
+
+        ]
+    }
+
+]

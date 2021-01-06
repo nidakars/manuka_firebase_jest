@@ -1,0 +1,27 @@
+{
+  "name": "nuxt_man",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/firebase": "^7.3.0",
+    "@nuxtjs/pwa": "^3.3.3",
+    "core-js": "^3.6.5",
+    "firebase": "^8.2.1",
+    "manuka.vuex-main": "file:vuex",
+    "nuxt": "^2.14.10",
+    "vuex": "^3.6.0",
+    "vuex-persist": "^3.1.3"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  }
+}
