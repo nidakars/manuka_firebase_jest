@@ -36,8 +36,6 @@
                       >
                         <div class="row input-icon tooltipWrapper">
                           <input
-                            @focus="ad = true"
-                            @blur="ad = false"
                             type="text"
                             placeholder="Ad"
                             name="name"
@@ -45,8 +43,8 @@
                             class="col col-12 required withHolder loadedPlace personaclick-initialized"
                           />
                           <span
-                            :class="{ focus: ad }"
-                            class="col ease placeholder"
+                            class="col ease placeholder focus"
+                           
                             >Ad</span
                           >
                         </div>
@@ -63,7 +61,8 @@
                             id="surname"
                             class="col col-12 required withHolder loadedPlace personaclick-initialized"
                           />
-                          <span class="col ease placeholder">Soyad</span>
+                          <span class="col ease placeholder focus"
+                          >Soyad</span>
                         </div>
                       </div>
                       <div
@@ -78,7 +77,9 @@
                             id="company"
                             class="col col-12 withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Firma</span>
+                          <span class="col ease placeholder focus"
+                         
+                              >Firma</span>
                         </div>
                       </div>
                       <div class="fl col-12 text-title text-semibold d-flex mt">
@@ -383,7 +384,8 @@
                             class="col col-12 phone TelUzun required withHolder loadedPlace"
                             data-val=""
                           />
-                          <span class="col ease placeholder">Cep Telefonu</span>
+                          <span class="col ease placeholder focus"
+                          >Cep Telefonu</span>
                         </div>
                       </div>
                       <div
@@ -406,8 +408,7 @@
                           <span
                             for="email"
                             class="col ease placeholder focus"
-                            :class="focus"
-                            @click="focusActive()"
+                           
                             >E-Mail</span
                           >
                         </div>
@@ -424,7 +425,8 @@
                             id="post_code"
                             class="col col-12 required withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Posta</span>
+                          <span class="col ease placeholder focus"
+                          >Posta</span>
                         </div>
                       </div>
                       <div
@@ -443,7 +445,9 @@
                               id="city"
                               class="col col-12 required withHolder loadedPlace"
                             />
-                            <span class="col ease placeholder"></span>
+                            <span class="col ease placeholder focus"
+                            
+                              ></span>
                           </div>
                           <div class="fl col-12 adresSelect">
                             <select
@@ -579,7 +583,8 @@
                               id="district"
                               class="col col-12 required withHolder loadedPlace"
                             />
-                            <span class="col ease placeholder">Semt</span>
+                            <span class="col ease placeholder focus"
+                            >Semt</span>
                           </div>
                           <div class="fl col-12 adresSelect hideThis">
                             <select
@@ -613,10 +618,9 @@
                             class="col col-12 required withHolder loadedPlace"
                           />
                           <span
-                            for="password"
+                          
                             class="col ease placeholder focus"
-                            :class="focus"
-                            @click="focusActive()"
+                           
                             >Şifre</span
                           >
                         </div>
@@ -633,7 +637,9 @@
                             id="password_again"
                             class="col col-12 required withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Şifre Tekrar</span>
+                          <span class="col ease placeholder focus"
+                           
+                          >Şifre Tekrar</span>
                         </div>
                       </div>
                       <div class="box col-12">
@@ -715,7 +721,7 @@
                           </label>
                         </div>
                       </div>
-                      <div @click="signUp" class="col col-12">
+                      <div @click="SignUp" class="col col-12">
                         <div class="row">
                           <a
                             type="submit"
@@ -750,6 +756,8 @@ export default {
   name: 'signin',
   data() {
     return {
+      isFocus: false,
+      isFocus2: false,
       email: '',
       password: '',
       ad: false,
@@ -759,14 +767,24 @@ export default {
       success: false,
     }
   },
-
+  computed: {
+    focus() {
+      return this.isFocus ? 'focus' : ''
+    },
+  },
   methods: {
-    signUp(e) {
+    focusActive() {
+      this.isFocus = !this.isFocus
+    },
+    focusActive1() {
+      this.isFocus2 = !this.isFocus2
+    },
+    SignUp(e) {
       e.preventDefault()
       this.$fire.auth
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((res) => {
-          console.log('Giriş başarılı')
+          console.log('Kayıt başarılı')
           this.$store.commit('user/setUser', this.email)
           setTimeout(() => {
             window.location.href = '/'
@@ -776,11 +794,10 @@ export default {
           this.success = true
         })
         .catch((err) => {
-          console.log('Giriş başarısız')
+          console.log('Kayıt başarısız')
           this.error = true
         })
-    },
-  },
+    },},
 }
 </script>
 <style scoped>
