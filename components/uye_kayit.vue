@@ -716,13 +716,13 @@
                         class="col col-12"
                       >
                         <div class="row">
-                          <a
+                          <nuxt-link :to="'/giris_yapilan'"
                             type="submit"
                             id="uye-kayit-btn"
                             class="btn col-12 btn-custom-pink text-upper text-center"
                           >
                             Kaydet
-                          </a>
+                          </nuxt-link>
                         </div>
                       </div>
                     </div>
