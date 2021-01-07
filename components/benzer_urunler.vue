@@ -23,7 +23,7 @@
             "
           >
             <div
-              v-for="i in products"
+              v-for="i in products()"
               :key="i"
               class="owl-item active"
               style="width: 193.44px; margin-right: 10px"
@@ -245,6 +245,7 @@
 </style>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'giyim',
   data: () => {
@@ -252,14 +253,17 @@ export default {
   },
   created() {
     this.loading = true
-    this.$store
-      .dispatch('product/fetchProducts')
-      .then(() => (this.loading = false))
+    this.fetchProducts()
+  },
+  methods: {
+    ...mapActions({
+      fetchProducts: 'product/fetchProducts',
+    }),
   },
   computed: {
-    products() {
-      return this.$store.getters['product/getProducts']
-    },
+    ...mapGetters({
+      products: 'product/getProducts',
+    }),
   },
 }
 </script>
