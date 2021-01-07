@@ -170,7 +170,7 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.isAlreadyLogged = true
-        //this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
+        // this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
       } else {
         this.isAlreadyLogged = false
       }

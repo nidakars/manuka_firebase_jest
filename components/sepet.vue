@@ -278,7 +278,7 @@
               <div class="col col-3 col-md-6 col-sm-12">
                 <div class="row mb">
                   <a
-                    href="/order"
+                    href="/uye_giris"
                     class="btn btn-big col-12 btn-custom-pink text-center text-upper buyBtn"
                     title="Fatura ve adres bilgilerinizi girip alışverişinize devam etmek için bu butonu tıklayınız."
                     id="addCartBtn"
