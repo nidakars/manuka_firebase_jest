@@ -105,8 +105,10 @@
                     <span class="col ease placeholder">Güvenlik Kodu</span>
                   </div>
                 </div>
-                <div @click="login({ email, password })"       isAlreadyLogged: true
- class="box col-12">
+                <div
+                  @click="login({ email, password }), giris()"
+                  class="box col-12"
+                >
                   <div class="row">
                     <nuxt-link
                       to="giris_yapilan"
@@ -175,15 +177,14 @@ export default {
     })
   },
   computed: {
-    giris(){
-    if (this.isAlreadyLogged = true) {
-        
+    giris() {
+      if ((this.isAlreadyLogged = true)) {
         this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
       } else {
         this.isAlreadyLogged = false
-                this.$router.push('/uye_giris') // yönlendiriyor giriş yapılmışsa
-
-      }},
+        this.$router.push('/uye_giris') // yönlendiriyor giriş yapılmışsa
+      }
+    },
 
     focus() {
       return this.isFocus ? 'focus' : ''
