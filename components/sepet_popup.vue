@@ -59,15 +59,18 @@
                           </td>
                           <td class="col-1 fw700 dn-xs">Sil</td>
                         </tr>
-                        <tr v-for="item in basket" :key="'basket'+item.id" class="line-bottom row3296">
+                        <tr
+                          v-for="item in basket"
+                          :key="'basket' + item.id"
+                          class="line-bottom row3296"
+                        >
                           <td class="col-1 col-xs-2 line-right">
-                            <img
-                              :src="item.product.image"
-                            />
+                            <img :src="item.product.image" />
                           </td>
                           <td class="col-4 col-xs-6 fw600 line-right">
                             <span class="fl"
-                              >{{item.product.title}}</span
+                              >{{ item.product.title }}
+                              {{ item.product.size }}</span
                             >
                           </td>
                           <td
@@ -84,7 +87,7 @@
                                   data-id="3296"
                                   data-cart-id="0"
                                   @click="decrease(item.id)"
-                                   class="decBasketProduct"
+                                  class="decBasketProduct"
                                 >
                                   <p>-</p>
                                 </a>
@@ -108,11 +111,13 @@
                             </div>
                           </td>
 
-                          <td class="col-2 line-right dn-xs">{{item.product.price}} TL</td>
+                          <td class="col-2 line-right dn-xs">
+                            {{ item.product.price }} TL
+                          </td>
                           <td
                             class="col-2 col-xs-4 line-right priceBasketProduct"
                           >
-                            {{item.product.price}}TL
+                            {{ item.product.price }}TL
                           </td>
                           <td class="col-1 dn-xs">
                             <a
@@ -133,7 +138,7 @@
                             <div class="box col-6 fw600">Sepet Toplamı</div>
                             <div class="box col-1 fw600">:</div>
                             <div class="box col-4 tar totalBasketPrice">
-                              {{total}}TL
+                              {{ total }}TL
                             </div>
                           </div>
                         </div>
@@ -177,45 +182,40 @@
 </style>
 
 <script>
-
 export default {
   data: () => {
-    return {
-
-    };
+    return {}
   },
-  created() {
-
-  },
+  created() {},
   computed: {
-    basket(){
-      return this.$store.getters['basket/getBasketItems'];
+    basket() {
+      return this.$store.getters['basket/getBasketItems']
     },
-    subtotal(){
-      let total = 0;
+    subtotal() {
+      let total = 0
       for (let i = 0; i < this.basket.length; i++) {
-        total += this.basket[i].product.price;
+        total += this.basket[i].product.price
       }
-      return total.toFixed(2);
+      return total.toFixed(2)
     },
     total() {
-      let total = 0;
+      let total = 0
       for (let i = 0; i < this.basket.length; i++) {
-        total += (this.basket[i].product.price * this.basket[i].count);
+        total += this.basket[i].product.price * this.basket[i].count
       }
-      return total.toFixed(2);
-    }
+      return total.toFixed(2)
+    },
   },
   methods: {
-    removeBasketItem(id){
-      this.$store.dispatch('basket/removeBasketItem', id);
+    removeBasketItem(id) {
+      this.$store.dispatch('basket/removeBasketItem', id)
     },
-    increase(id){
-      this.$store.dispatch('basket/increaseBasketItem', id);
+    increase(id) {
+      this.$store.dispatch('basket/increaseBasketItem', id)
     },
-    decrease(id){
-      this.$store.dispatch("basket/decreaseBasketItem", id);
-    }
-  }
+    decrease(id) {
+      this.$store.dispatch('basket/decreaseBasketItem', id)
+    },
+  },
 }
 </script>

@@ -105,14 +105,16 @@
                     <span class="col ease placeholder">Güvenlik Kodu</span>
                   </div>
                 </div>
-                <div @click="login({ email, password })" class="box col-12">
+                <div @click="login({ email, password })"       isAlreadyLogged: true
+ class="box col-12">
                   <div class="row">
-                    <a
+                    <nuxt-link
+                      to="giris_yapilan"
                       data-prefix="pop-"
                       data-callback="popMemberLoginFn"
                       class="login btn col-12 btn-default btn-big btn-upper btn-radius a-center"
                       id="popup-member-login"
-                      >Giriş Yap</a
+                      >Giriş Yap</nuxt-link
                     >
                   </div>
                 </div>
@@ -166,11 +168,23 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.isAlreadyLogged = true
-        this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
-      } else this.isAlreadyLogged = false
+        //this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
+      } else {
+        this.isAlreadyLogged = false
+      }
     })
   },
   computed: {
+    giris(){
+    if (this.isAlreadyLogged = true) {
+        
+        this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
+      } else {
+        this.isAlreadyLogged = false
+                this.$router.push('/uye_giris') // yönlendiriyor giriş yapılmışsa
+
+      }},
+
     focus() {
       return this.isFocus ? 'focus' : ''
     },

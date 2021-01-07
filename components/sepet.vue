@@ -76,7 +76,7 @@
                   class="fl col-12 col-sm-7 text-description"
                   target="_blank"
                 >
-                  >{{ item.product.title }} ( {{ item.size }} )</nuxt-link
+                  >{{ item.product.title }} {{ item.size + 1 }}</nuxt-link
                 >
 
                 <div class="box col-sm-5 text-center AdetFiyatBox">

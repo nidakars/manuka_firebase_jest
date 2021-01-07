@@ -109,6 +109,7 @@ export default {
         this.isLoggedIn = true
       } else {
         this.isLoggedIn = false
+        this.$router.push('/uye_giris') // yönlendiriyor giriş yapılmışsa
       }
     })
   },
