@@ -56,11 +56,9 @@ export const actions = {
             }
         }
     },
-    removeBasketAll({ state, commit }, id) {
+    removeBasketAll({ state, commit }) {
         for (let i = 0; i < state.items.length; i++) {
-
             commit('removeBasketItem', i);
-            return false;
 
         }
     }
