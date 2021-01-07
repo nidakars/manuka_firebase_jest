@@ -36,19 +36,13 @@
                       >
                         <div class="row input-icon tooltipWrapper">
                           <input
-                            @focus="ad = true"
-                            @blur="ad = false"
                             type="text"
                             placeholder="Ad"
                             name="name"
                             id="name"
                             class="col col-12 required withHolder loadedPlace personaclick-initialized"
                           />
-                          <span
-                            :class="{ focus: ad }"
-                            class="col ease placeholder"
-                            >Ad</span
-                          >
+                          <span class="col ease placeholder focus">Ad</span>
                         </div>
                       </div>
                       <div
@@ -63,7 +57,7 @@
                             id="surname"
                             class="col col-12 required withHolder loadedPlace personaclick-initialized"
                           />
-                          <span class="col ease placeholder">Soyad</span>
+                          <span class="col ease placeholder focus">Soyad</span>
                         </div>
                       </div>
                       <div
@@ -78,7 +72,7 @@
                             id="company"
                             class="col col-12 withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Firma</span>
+                          <span class="col ease placeholder focus">Firma</span>
                         </div>
                       </div>
                       <div class="fl col-12 text-title text-semibold d-flex mt">
@@ -383,7 +377,9 @@
                             class="col col-12 phone TelUzun required withHolder loadedPlace"
                             data-val=""
                           />
-                          <span class="col ease placeholder">Cep Telefonu</span>
+                          <span class="col ease placeholder focus"
+                            >Cep Telefonu</span
+                          >
                         </div>
                       </div>
                       <div
@@ -407,7 +403,6 @@
                             for="email"
                             class="col ease placeholder focus"
                             :class="focus"
-                            @click="focusActive"
                             >E-Mail</span
                           >
                         </div>
@@ -424,7 +419,7 @@
                             id="post_code"
                             class="col col-12 required withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Posta</span>
+                          <span class="col ease placeholder focus">Posta</span>
                         </div>
                       </div>
                       <div
@@ -443,7 +438,7 @@
                               id="city"
                               class="col col-12 required withHolder loadedPlace"
                             />
-                            <span class="col ease placeholder"></span>
+                            <span class="col ease placeholder focus"></span>
                           </div>
                           <div class="fl col-12 adresSelect">
                             <select
@@ -579,7 +574,7 @@
                               id="district"
                               class="col col-12 required withHolder loadedPlace"
                             />
-                            <span class="col ease placeholder">Semt</span>
+                            <span class="col ease placeholder focus">Semt</span>
                           </div>
                           <div class="fl col-12 adresSelect hideThis">
                             <select
@@ -613,7 +608,6 @@
                             class="col col-12 required withHolder loadedPlace"
                           />
                           <span
-                            for="password"
                             class="col ease placeholder focus"
                             :class="focus"
                             @click="focusActive"
@@ -633,7 +627,9 @@
                             id="password_again"
                             class="col col-12 required withHolder loadedPlace"
                           />
-                          <span class="col ease placeholder">Şifre Tekrar</span>
+                          <span class="col ease placeholder focus"
+                            >Şifre Tekrar</span
+                          >
                         </div>
                       </div>
                       <div class="box col-12">
@@ -755,6 +751,8 @@ export default {
   name: 'signin',
   data() {
     return {
+      isFocus: false,
+      isFocus2: false,
       email: '',
       password: '',
       ad: false,
@@ -765,7 +763,11 @@ export default {
       isFocus: false,
     }
   },
-
+  computed: {
+    focus() {
+      return this.isFocus ? 'focus' : ''
+    },
+  },
   methods: {
     ...mapActions({
       register: 'user/register',
