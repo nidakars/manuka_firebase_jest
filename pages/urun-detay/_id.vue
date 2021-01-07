@@ -189,14 +189,14 @@
                         <div class="fl col-12 d-flex">
                           <div
                             class="box col-12 variantBox subTwo"
-                            data-order="2"
+                            data-order=""
                           >
                             <div class="pos-r fl col-12 ease variantList">
                               <a
                                 v-for="(items, index) in product.size"
                                 :key="items.size"
                                 data-id="146"
-                                data-group-id="2"
+                                data-group-id=""
                                 data-target="3334"
                                 class="col"
                                 @click="size = index"
@@ -212,6 +212,12 @@
                         </div>
                       </div>
                     </div>
+                    <span
+                      v-if="error"
+                      class="tooltip btn-danger"
+                      style="display: inline"
+                      >Beden seçimi yapınız</span
+                    >
                   </div>
                 </div>
                 <div
@@ -471,24 +477,24 @@ export default {
     return {
       isActive: false,
       count: 1,
-      size: 1,
+      size: -1,
       productID: this.$route.params.id,
     }
   },
   created() {
-    const id = this.$route.params.id
-    this.$store.dispatch('product/fetchProducts')
-    const parsedId = parseInt(id)
-    if (parsedId != id) {
-      this.$router.push({ path: 'giyim' })
-    } else {
-      this.$store.dispatch('product/SetProduct', parsedId)
-      const product = this.$store.getters['product/getProduct']
-      if (product === null || product == undefined) {
-        this.$router.push({ path: 'giyim' })
-        return false
-      }
-    }
+    // const id = this.$route.params.id
+    // this.$store.dispatch('product/fetchProducts')
+    // const parsedId = parseInt(id)
+    // if (parsedId != id) {
+    //   this.$router.push({ path: 'giyim' })
+    // } else {
+    //   this.$store.dispatch('product/SetProduct', parsedId)
+    //   const product = this.$store.getters['product/getProduct']
+    //   if (product === null || product == undefined) {
+    //     this.$router.push({ path: 'giyim' })
+    //     return false
+    //   }
+    // }
   },
   computed: {
     isContentVisible() {

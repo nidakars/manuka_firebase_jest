@@ -71,8 +71,8 @@ export const actions = {
                         displayName: payload.name,
                         phoneNumber: payload.phone
                     });
-                    alert("İsim " + payload.name + " güncellendi");
-                    alert("Telefon " + payload.phone + " güncellendi");
+                    // alert("İsim " + payload.name + " güncellendi");
+                    // alert("Telefon " + payload.phone + " güncellendi");
                     var newUser = userCredential.user
                     alert("oluşturulan kullanıcı idsi: " + newUser.uid)
 
