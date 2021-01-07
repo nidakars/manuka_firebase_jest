@@ -193,14 +193,14 @@
                           >
                             <div class="pos-r fl col-12 ease variantList">
                               <a
-                                v-for="items in product.size"
+                                v-for="(items, index) in product.size"
                                 :key="items.size"
                                 data-id="146"
                                 data-group-id="2"
                                 data-target="3334"
                                 class="col"
-                                @click="size = 'items'"
-                                :class="size === 'items' ? 'selected' : ' '"
+                                @click="size = index"
+                                :class="size === index ? 'selected' : ' '"
                               >
                                 <p>{{ items }}</p>
                                 <span class=""></span>
@@ -461,7 +461,7 @@
 
 <script>
 import benzers from '@/components/benzer_urunler.vue'
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 export default {
   name: 'ProductDetail',
   components: {
@@ -472,7 +472,7 @@ export default {
       isActive: false,
       count: 1,
       size: 1,
-      productID:this.$route.params.id
+      productID: this.$route.params.id,
     }
   },
   created() {
@@ -501,12 +501,12 @@ export default {
       var product = this.getProduct(this.productID)
       if (product == null) {
         this.$router.push({ path: 'giyim' })
-        return ;
+        return
       }
       return product
     },
     ...mapGetters({
-      getProduct: "product/getProduct"
+      getProduct: 'product/getProduct',
     }),
   },
   methods: {
