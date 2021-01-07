@@ -73,7 +73,7 @@
               </a>
             </div>
             <div
-              @click="logout"
+              @click="logout, removeBasketAll()"
               class="box col-4 col-md-6 col-sm-12 p-top p-left"
             >
               <a
@@ -116,6 +116,9 @@ export default {
     ...mapActions({
       logout: 'user/logout',
     }),
+    removeBasketAll() {
+      this.$store.dispatch('basket/removeBasketAll')
+    },
     getUserdata() {
       // Kullanıcı verilerini çekiyoruz.
       if (this.isLoggedIn) {

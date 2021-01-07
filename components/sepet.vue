@@ -150,7 +150,7 @@
 
                 <a
                   class="btn btn-small col-sm-6 col-xs-12 text-center btn-custom-light-gray"
-                  @click="removeBasketAll(products.id)"
+                  @click="removeBasketAll()"
                 >
                   Sepeti Temizle
                 </a>
@@ -324,8 +324,8 @@ export default {
     removeBasketItem(id) {
       this.$store.dispatch('basket/removeBasketItem', id)
     },
-    removeBasketAll(id) {
-      this.$store.dispatch('basket/removeBasketItem', id)
+    removeBasketAll() {
+      this.$store.dispatch('basket/removeBasketAll')
     },
 
     increase(id) {
