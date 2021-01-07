@@ -16,7 +16,7 @@ export default {
     css: ["../assets/styles/styles.css"],
 
     // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-    plugins: [{ src: "~/plugins/vuex-persist", ssr: false }],
+    plugins: [{ src: "~/plugins/vuex-persist", ssr: false }, '~/plugins/firebase.js'],
 
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
@@ -28,25 +28,7 @@ export default {
     modules: [ // https://go.nuxtjs.dev/axios
         "@nuxtjs/axios",
         // https://go.nuxtjs.dev/pwa
-        "@nuxtjs/pwa", [
-            "@nuxtjs/firebase",
-            {
-                config: {
-                    apiKey: "AIzaSyBDl0DImA2BlNJndznBci_rmIzYa8VhEEA",
-                    authDomain: "manuka-nuxt.firebaseapp.com",
-                    databaseURL: "https://manuka-nuxt-default-rtdb.firebaseio.com",
-                    projectId: "manuka-nuxt",
-                    storageBucket: "manuka-nuxt.appspot.com",
-                    messagingSenderId: "848001636087",
-                    appId: "1:848001636087:web:234e4fe76dbdb91876e5f2"
-                },
-                services: {
-                    firestore: true,
-                    auth: true
-                },
 
-            }
-        ],
 
     ],
 

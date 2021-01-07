@@ -10,9 +10,17 @@
         <div id="katalog" class="row">
           <div class="col col-12">
             <div class="row">
-              <div class="fl col-12 catalogWrapper" id="list-slide1003">
+             <!--  Düzeltme 1 -->
+              <!-- eğer data hala yüklenmemişse herhangi bir sorun oluşmaması için bu yükleniyor kısmını gösterebiliriz. -->
+              <div class="deneme" v-if="!products">
+                <img
+                  src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/source.gif"
+                  alt="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/source.gif"
+                />
+              </div>
+              <div class="fl col-12 catalogWrapper" id="list-slide1003" v-else>
                 <div
-                  v-for="product in products"
+                  v-for="product in products()"
                   :key="'product' + product.id"
                   class="col col-4 col-md-6 col-sm-12 productItem ease"
                   id="1003-product-detail-ekose-astarli-ceket-mavi"
@@ -46,7 +54,7 @@
                       >
                         <span class="imgInner">
                           <img
-                            :src="product.image"
+                            :src="product.image[0]"
                             class="stImage"
                             alt=""
                             style=""
@@ -158,6 +166,8 @@
 <script>
 import leftMenu from '@/components/leftMenu'
 import list from '@/components/list'
+//Düzeltme 2
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'giyim',
   data: () => {
@@ -169,14 +179,19 @@ export default {
   },
   created() {
     this.loading = true
-    this.$store
-      .dispatch('product/fetchProducts')
-      .then(() => (this.loading = false))
+    this.fetchProducts()
+  },
+  
+//Düzeltme 3
+  methods: {
+    ...mapActions({
+      fetchProducts: 'product/fetchProducts',
+    }),
   },
   computed: {
-    products() {
-      return this.$store.getters['product/getProducts']
-    },
+    ...mapGetters({
+      products: 'product/getProducts',
+    }),
   },
 }
 </script>

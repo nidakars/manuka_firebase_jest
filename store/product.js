@@ -1,3 +1,4 @@
+import { realDb } from '~/plugins/firebase.js';
 export const state = () => ({
     isInitialized: false,
     products: [],
@@ -9,7 +10,7 @@ export const mutations = {
     },
     setProduct(state, product) {
         state.product = product;
-    },
+    }
 };
 export const actions = {
     // initData({ state, commit }, ) {
@@ -27,20 +28,27 @@ export const actions = {
     },
     fetchProducts({ commit }) {
         return new Promise((resolve, reject) => {
+            //Düzeltme 5
+            realDb.ref('/products').once('value').then((snapshot) => {
 
-            firebase.database().ref('/products').once('value').then((snapshot) => {
-                console.log(snapshot.val());
-                commit('setProducts', snapshot.val())
+                //console.log(snapshot.val());
+                let arr = []
+                if (snapshot.val() != null) {
+                    //Map tipinde bir değişkeni arraye dönüştürmek için kullandığımız kod:
+                    arr = Object.entries(snapshot.val()).map(e => Object.assign(e[1], { key: e[0] }))
+                }
+                commit('setProducts', arr)
+
             });
         })
     },
 };
 export const getters = {
-    getProducts(state) {
+    getProducts: (state) => () => {
         return state.products;
     },
-    getProduct(state) {
-        return state.product;
+    getProduct: (state) => (id) => {
+        return state.products.find(product=>product.id==id);
     }
 
 };

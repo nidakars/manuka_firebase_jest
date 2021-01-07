@@ -5,36 +5,36 @@
         <div class="row">
           <div class="col col-12 mb line-bottom pageTitle small-title d-flex">
             <i class="icon-member-default text-custom-pink"></i>
-            <div id="fullname">Merhaba</div>
+            <div id="fullname">Merhaba {{ mailim }}</div>
           </div>
           <div class="box col-12 p-right p-bottom">
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
-              <a
-                href="/uye-siparisleri"
+              <nuxt-link
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
+                to="#"
               >
                 Siparişlerim
-              </a>
+              </nuxt-link>
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
-              <a
-                href="/uye-kisisel-bilgileri"
+              <nuxt-link
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
+                to="#"
               >
                 Kişisel Bilgilerim
-              </a>
+              </nuxt-link>
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
-              <a
-                href="/uye-alisveris-listesi"
+              <nuxt-link
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
+                to="#"
               >
                 Favorilerim
-              </a>
+              </nuxt-link>
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
               <a
-                href="/uye-hediye-ceklerim"
+                href="#"
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
               >
                 Hediye Çeklerim
@@ -42,7 +42,7 @@
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
               <a
-                href="/puan-ve-yorum"
+                href="#"
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
               >
                 Puanlarım
@@ -50,7 +50,7 @@
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
               <a
-                href="/uye-stok-alarm-listem"
+                href="#"
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
               >
                 Stok Alarm Listem
@@ -58,7 +58,7 @@
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
               <a
-                href="/uye-havale-bildirim"
+                href="#"
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
               >
                 Havale Bildirimi
@@ -66,16 +66,19 @@
             </div>
             <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
               <a
-                href="/uye-sifre-degistirme"
+                href="#"
                 class="btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
               >
                 Şifremi Değiştir
               </a>
             </div>
-            <div class="box col-4 col-md-6 col-sm-12 p-top p-left">
+            <div
+              @click="logout"
+              class="box col-4 col-md-6 col-sm-12 p-top p-left"
+            >
               <a
-                href="#"
                 class="logout btn col-12 btn-custom-gray btn-medium btn-upper btn-radius a-center"
+                href="/"
               >
                 Çıkış Yap
               </a>
@@ -86,3 +89,42 @@
     </div>
   </div>
 </template>
+
+<script>
+import user from '@/store/user'
+import firebase from 'firebase'
+import { mapActions } from 'vuex'
+export default {
+  data() {
+    return {
+      isLoggedIn: false,
+      currentUser: false,
+      mailim: '',
+      uid: null,
+    }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isLoggedIn = true
+      } else {
+        this.isLoggedIn = false
+      }
+    })
+  },
+  methods: {
+    ...mapActions({
+      logout: 'user/logout',
+    }),
+    getUserdata() {
+      // Kullanıcı verilerini çekiyoruz.
+      if (this.isLoggedIn) {
+        // kullanici diye bir variable tanımladık. Email ile ismi çektik.
+        var kullanici = firebase.auth().currentUser
+        this.mailim = kullanici.email
+        this.uid = kullanici.uid
+      }
+    },
+  },
+}
+</script>

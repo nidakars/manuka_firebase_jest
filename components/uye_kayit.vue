@@ -407,7 +407,7 @@
                             for="email"
                             class="col ease placeholder focus"
                             :class="focus"
-                            @click="focusActive()"
+                            @click="focusActive"
                             >E-Mail</span
                           >
                         </div>
@@ -616,7 +616,7 @@
                             for="password"
                             class="col ease placeholder focus"
                             :class="focus"
-                            @click="focusActive()"
+                            @click="focusActive"
                             >Şifre</span
                           >
                         </div>
@@ -715,7 +715,10 @@
                           </label>
                         </div>
                       </div>
-                      <div @click="signUp" class="col col-12">
+                      <div
+                        @click="register({ email, password })"
+                        class="col col-12"
+                      >
                         <div class="row">
                           <a
                             type="submit"
@@ -746,6 +749,8 @@
   </div>
 </template>
 <script>
+import firebase from 'firebase'
+import { mapActions } from 'vuex'
 export default {
   name: 'signin',
   data() {
@@ -757,29 +762,37 @@ export default {
       firma: false,
       error: false,
       success: false,
+      isFocus: false,
     }
   },
 
   methods: {
-    signUp(e) {
-      e.preventDefault()
-      this.$fire.auth
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((res) => {
-          console.log('Giriş başarılı')
-          this.$store.commit('user/setUser', this.email)
-          setTimeout(() => {
-            window.location.href = '/'
-          }, 1500)
+    ...mapActions({
+      register: 'user/register',
+      login: 'user/login',
+      updateUser: 'user/updateData',
+    }),
+    // signUp() {
+    //   firebase
+    //     .auth().createUserWithEmailAndPassword(this.email, this.password)
+    //     .then((res) => {
+    //       alert('Kayıt başarılı')
+    //       this.$store.commit('user/setUser', this.email)
+    //       setTimeout(() => {
+    //         window.location.href = '/'
+    //       }, 1500)
 
-          this.error = false
-          this.success = true
-        })
-        .catch((err) => {
-          console.log('Giriş başarısız')
-          this.error = true
-        })
-    },
+    //       this.error = false
+    //       this.success = true
+    //     })
+    //     .catch((err) => {
+    //       alert('Kayıt başarısız')
+    //       this.error = true
+    //     })
+    // },
+  },
+  focusActive() {
+    this.isFocus = !this.isFocus
   },
 }
 </script>

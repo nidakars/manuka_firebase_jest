@@ -105,7 +105,7 @@
                     <span class="col ease placeholder">Güvenlik Kodu</span>
                   </div>
                 </div>
-                <div @click="login" class="box col-12">
+                <div @click="login({ email, password })" class="box col-12">
                   <div class="row">
                     <a
                       data-prefix="pop-"
@@ -148,6 +148,8 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -157,7 +159,16 @@ export default {
       password: '',
       error: false,
       success: false,
+      isAlreadyLogged: false,
     }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isAlreadyLogged = true
+        this.$router.push('/giris_yapilan') // yönlendiriyor giriş yapılmışsa
+      } else this.isAlreadyLogged = false
+    })
   },
   computed: {
     focus() {
@@ -174,26 +185,30 @@ export default {
     focusActive1() {
       this.isFocus2 = !this.isFocus2
     },
-    login(e) {
-      e.preventDefault()
-      this.$fire.auth
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((res) => {
-          console.log('Giriş başarılı')
-          this.$store.commit('user/setUser', this.email)
-          setTimeout(() => {
-            window.location.href = '/'
-          }, 1500)
+    ...mapActions({
+      register: 'user/register',
+      login: 'user/login',
+      updateUser: 'user/updateData',
+    }),
+    // login() {
+    //   firebase.auth()
+    //     .signInWithEmailAndPassword(this.email, this.password)
+    //     .then((res) => {
+    //       alert('Giriş başarılı')
+    //       this.$store.commit('user/setUser', this.email)
+    //       setTimeout(() => {
+    //         window.location.href = '/'
+    //       }, 1500)
 
-          this.error = false
-          this.success = true
-        })
-        .catch((err) => {
-          console.log('Giriş başarısız')
-          this.error = true
-          this.success = false
-        })
-    },
+    //       this.error = false
+    //       this.success = true
+    //     })
+    //     .catch((err) => {
+    //       alert('Giriş başarısız')
+    //       this.error = true
+    //       this.success = false
+    //     })
+    // },
   },
 }
 </script>

@@ -461,6 +461,7 @@
 
 <script>
 import benzers from '@/components/benzer_urunler.vue'
+import { mapGetters } from "vuex";
 export default {
   name: 'ProductDetail',
   components: {
@@ -471,6 +472,7 @@ export default {
       isActive: false,
       count: 1,
       size: 1,
+      productID:this.$route.params.id
     }
   },
   created() {
@@ -496,13 +498,16 @@ export default {
       return this.isActive ? 'active' : ''
     },
     product() {
-      const product = this.$store.getters['product/getProduct']
+      var product = this.getProduct(this.productID)
       if (product == null) {
         this.$router.push({ path: 'giyim' })
-        return product
+        return ;
       }
       return product
     },
+    ...mapGetters({
+      getProduct: "product/getProduct"
+    }),
   },
   methods: {
     toggleActive() {
