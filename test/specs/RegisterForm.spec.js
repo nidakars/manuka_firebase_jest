@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
-import RegisterForm from '../components/uye_kayit.vue'
+import RegisterForm from '../../components/uye_kayit.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

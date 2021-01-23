@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
-import LoginForm from '../components/uye_giris'
+import LoginForm from '../../components/uye_giris'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
