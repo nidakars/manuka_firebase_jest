@@ -198,19 +198,7 @@ import firebase from "firebase";
 import { realDb, auth } from '../plugins/firebase.js';
 
 export const getters = {
-    total: (state) => () => {
-        let total = 0
-        state.inCart.forEach(cartItem => {
-            total =
-                total +
-                state.products.find(data => data.id === cartItem.pid).price *
-                cartItem.count;
-        });
-        for (let i = 0; i < this.getBasketItems.length; i++) {
-            total += this.getBasketItems[i].product.price * this.getBasketItems[i].count
-        }
-        return total.toFixed(2)
-    },
+
     formatPrice: () => (value) => {
         let val = (value / 1).toFixed(2).replace(".", ",");
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
