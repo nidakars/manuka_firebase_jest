@@ -105,10 +105,7 @@
                     <span class="col ease placeholder">Güvenlik Kodu</span>
                   </div>
                 </div>
-                <div
-                  @click="login({ email, password }), giris()"
-                  class="box col-12"
-                >
+                <div @click="girisYap(), giris()" class="box col-12">
                   <div class="row">
                     <nuxt-link
                       to="giris_yapilan"
@@ -201,10 +198,16 @@ export default {
       this.isFocus2 = !this.isFocus2
     },
     ...mapActions({
-      register: 'user/register',
-      login: 'user/login',
-      updateUser: 'user/updateData',
+      register: 'register',
+      login: 'login',
+      updateUser: 'updateData',
     }),
+    girisYap() {
+      this.login({
+        email: this.email,
+        password: this.password,
+      })
+    },
     // login() {
     //   firebase.auth()
     //     .signInWithEmailAndPassword(this.email, this.password)

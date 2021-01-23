@@ -26,6 +26,10 @@ describe('LoginForm', () => {
                 $router: {
                     push: jest.fn()
                 }
+            },
+            stubs: {
+                NuxtLink: true,
+                ["router-view"]: true,
             }
         });
     });
@@ -33,17 +37,9 @@ describe('LoginForm', () => {
     describe('LoginForm', () => {
         describe('#Giris yap işlemi', () => {
             it('login fonksiyonun çağrılması', async() => {
-                await wrapper.vm.login();
+                await wrapper.vm.girisYap();
                 expect(mockFunction).toHaveBeenCalled();
             });
-            /* 
-                        it("Successfull Login", () => {
-                            let loginButton = wrapper.find(".btnLogin");
-                            console.log = jest.fn();
-                            loginButton.trigger("click").then(() => {
-                                expect(console.log).toHaveBeenCalledWith('Giriş Başarılı');
-                            });
-                        }); */
         });
     });
 });
