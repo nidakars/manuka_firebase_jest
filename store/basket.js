@@ -65,5 +65,6 @@ export const actions = {
 export const getters = {
     getBasketItems(state) {
         return state.items;
-    }
+    },
+
 };

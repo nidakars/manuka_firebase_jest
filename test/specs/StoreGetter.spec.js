@@ -4,86 +4,81 @@ describe('getProductWithId', () => {
     it('id si belirtilen ürünü getirme', () => {
         // mock state
         const state = {
-            products: [
-                {
-                    id: "kavlak-tas-baski-zeytinyagi-3lu-ozel-fiyatli-kampanya",
-                    categoryID: 0,
-                    name: "Kavlak Taş Baskı Zeytinyağı 3lü Özel Fiyatlı Kampanya",
-                    detail: "Taş değirmenlerde ezilerek soğuk sıkım yöntemi ile elde edilen gerçek Taş Baskı Soğuk Sıkım Zeytinyağı En Avantajlı Kampanyası ile yemeklerinize lezzet katacak.",
-                    rate: 5,
-                    price: 599,
-                    code: "460",
-                    images: [
-                        "https://kavlak.com.tr/zeytinyaglari/kavlak-tas-baski-soguk-sikim-zeytinyagi-5lt-3-al-2-ode-kampanyasi.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 30
-                },
-                {
-                    id: "kavlak-ilk-hasat-5-litre-2li-ozel-kampanya",
-                    categoryID: 0,
-                    name: "Kavlak İlk Hasat 5 Litre 2li Özel Kampanya",
-                    detail: "Ege bölgesinde yetişen yeşil zeytinlerden soğuk sıkım yöntemi ile elde edilen aromatik ve filtreden geçmeyen şifa niyetine tüketilebilecek eşsiz zeytinyağı!",
-                    rate: 3,
-                    price: 519,
-                    code: "K0022",
-                    images: [
-                        "https://kavlak.com.tr/zeytinyaglari/kavlak-ilk-hasat-5-litre-2li-ozel-kampanya.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 39
-                },
-                {
-                    id: "kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-hediye",
-                    categoryID: 0,
-                    name: "Kavlak 5 Lt Taş Baskı Zeytinyağı Alana 2 Kg Jumbo Zeytin Hediye",
-                    detail: "Kavlak 5 Litre Taş Baskı Soğuk Sıkım Zeytinyağı Alana 2 Kg Jumbo Zeytin 10 TL! Üstelik Ücretsiz Kargo ile Kapınıza Teslim!",
-                    rate: 5,
-                    price: 289.90,
-                    code: "K0025",
-                    images: [
-                        "https://kavlak.com.tr/zeytinler/kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-ozel-fiyat.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 27
-                },
-                {
-                    id: "avlak-kuru-sele-siyah-zeytin-4-al-3-ode",
-                    categoryID: 1,
-                    name: "Kavlak Kuru Sele Siyah Zeytin 4 Al 3 Öde",
-                    detail: "Kavlak kuru sele siyah zeytin hiçbir kimyasal işleme tabi tutulmadan çevirme ve çuvallama yöntemiyle yalnızca tuz kullanılarak üretilir.",
-                    rate: 0,
-                    price: 199.90,
-                    code: "K0018",
-                    images: [
-                        "https://kavlak.com.tr/zeytinler/kavlak-kuru-sele-siyah-zeytin-4-al-3-ode.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 22
-                }
-            ]
+            products: [{
+                category: "Giyim",
+                color: "Mavi",
+                id: 13401,
+                image: ["https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg", "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15903-33-O.jpg", "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15904-33-O.jpg", "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15905-33-O.jpg"],
+                kategori: ["Giyim"],
+                oldprice: 219.9,
+                price: 197.91,
+                size: ["1", "2", "3"],
+                title: "EKOSE ASTARLI CEKET MAVİ"
+            }, {
+                color: "Çağla",
+                id: 13402,
+                image: ["https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15190-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15191-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15192-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15193-37-O.jpg"],
+                oldprice: 219.9,
+                price: 197.91,
+                size: ["1", "2"],
+                title: "KOLU BÜZGÜLÜ KAŞE KABAN ÇAĞLA"
+            }, {
+                color: "Gri",
+                id: 13403,
+                image: ["https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13920-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13921-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13922-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13923-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13925-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13924-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13926-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13927-32-O.jpg"],
+                oldprice: 300.99,
+                price: 250.95,
+                size: ["1", "2"],
+                title: "GENİŞ YAKALI KABAN GRİ"
+            }, {
+                color: "Bej",
+                id: 13404,
+                image: ["https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15816-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15175-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15176-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15177-37-O.jpg"],
+                oldprice: 350.92,
+                price: 320.5,
+                size: ["1", "2"],
+                title: "DÜĞMELİ EKOSE KABAN BEJ"
+            }, {
+                color: "Siyah",
+                id: 13405,
+                image: ["https://img.manuka.com.tr/cepli-sisme-mont-siyah-mont-15437-35-O.jpg", "https://img.manuka.com.tr/cepli-sisme-mont-siyah-mont-15438-35-O.jpg", "https://img.manuka.com.tr/cepli-sisme-mont-siyah-mont-15439-35-O.jpg", "https://img.manuka.com.tr/cepli-sisme-mont-siyah-mont-15440-35-O.jpg"],
+                oldprice: 350.9,
+                price: 297.65,
+                size: ["1", "2"],
+                title: "CEPLİ ŞİŞME MONT SİYAH"
+            }, {
+                color: "Bej",
+                id: 13406,
+                image: ["https://img.manuka.com.tr/kapitone-oversize-mont-bej-mont-0-15856-37-O.jpg", "https://img.manuka.com.tr/kapitone-oversize-mont-bej-mont-0-15857-37-O.jpg", "https://img.manuka.com.tr/kapitone-oversize-mont-bej-mont-0-15858-37-O.jpg", "https://img.manuka.com.tr/kapitone-oversize-mont-bej-mont-0-15859-37-O.jpg"],
+                oldprice: "329,90",
+                price: "296,91",
+                size: ["STD"],
+                title: "KAPİTONE OVERSİZE MONT BEJ"
+            }],
         }
 
-        const { getProductWithId } = getters;
+        const { getProduct } = getters;
         // mock getter
-        const id = "kavlak-ilk-hasat-5-litre-2li-ozel-kampanya"
+        const id = "13401"
 
         // get the result from the getter
-        const result = getProductWithId(state)(id)
+        const result = getProduct(state)(id)
 
         const expected = {
-            id: "kavlak-ilk-hasat-5-litre-2li-ozel-kampanya",
-            categoryID: 0,
-            name: "Kavlak İlk Hasat 5 Litre 2li Özel Kampanya",
-            detail: "Ege bölgesinde yetişen yeşil zeytinlerden soğuk sıkım yöntemi ile elde edilen aromatik ve filtreden geçmeyen şifa niyetine tüketilebilecek eşsiz zeytinyağı!",
-            rate: 3,
-            price: 519,
-            code: "K0022",
-            images: [
-                "https://kavlak.com.tr/zeytinyaglari/kavlak-ilk-hasat-5-litre-2li-ozel-kampanya.jpg"
+            category: "Giyim",
+            color: "Mavi",
+            id: 13401,
+            image: ["https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-13403-33-B.jpg",
+                "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15903-33-O.jpg",
+                "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15904-33-O.jpg",
+                "https://img.manuka.com.tr/ekose-astarli-ceket-mavi-ceket-0-15905-33-O.jpg"
             ],
-            inStock: 500,
-            indirim: 39
+            kategori: ["Giyim"],
+            oldprice: 219.9,
+            price: 197.91,
+            size: ["1", "2", "3"],
+            title: "EKOSE ASTARLI CEKET MAVİ"
+
         };
 
         // assert the result
@@ -91,89 +86,18 @@ describe('getProductWithId', () => {
     })
 })
 
-describe('getCategoryWithId', () => {
-    it('id si belirtilen kategoriyi getirme', () => {
-        // mock state
-        const state = {
-            categories: [
-                {
-                    "id": 0,
-                    "name": "ZeytinYagi"
-                },
-                {
-                    "id": 1,
-                    "name": "SiyahZeytin"
-                },
-                {
-                    "id": 2,
-                    "name": "icecek"
-                },
-                {
-                    "id": 3,
-                    "name": "EvYapimi"
-                },
-                {
-                    "id": 4,
-                    "name": "YesilZeytin"
-                },
-                {
-                    "id": 5,
-                    "name": "Peynir"
-                },
-                {
-                    "id": 6,
-                    "name": "Reçel"
-                },
-                {
-                    "id": 7,
-                    "name": "Diger"
-                },
-                {
-                    "id": 8,
-                    "name": "Kozmetik"
-                },
-                {
-                    "id": 9,
-                    "name": "Tursular"
-                },
-                {
-                    "id": 10,
-                    "name": "Sekerleme"
-                },
-                {
-                    "id": 11,
-                    "name": "Kuruyemis"
-                }
-            ]
-        }
 
-        const { getCategoryWithId } = getters;
-        // mock getter
-        const id = 8
-
-        // get the result from the getter
-        const result = getCategoryWithId(state)(id)
-
-        const expected = {
-            "id": 8,
-            "name": "Kozmetik"
-        };
-
-        // assert the result
-        expect(result).toEqual(expected)
-    })
-})
 
 describe('formatPrice', () => {
     it('Sayıyı virgüllü hale dönüştür', () => {
         // mock state       
         const { formatPrice } = getters;
         // mock getter
-        const id = 8
-        // get the result from the getter
-        const result = formatPrice()(159.9)
+        const id = 13401
+            // get the result from the getter
+        const result = formatPrice()(197.91)
 
-        const expected = "159,90";
+        const expected = "197,91";
         // assert the result
         expect(result).toEqual(expected)
     })
@@ -183,54 +107,56 @@ describe('getCartTotalCost', () => {
     it('Sepetteki Toplam tutarı hesaplama', () => {
         // mock state
         const state = {
-            products: [
-                {
-                    id: "kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-hediye",
-                    categoryID: 0,
-                    name: "Kavlak 5 Lt Taş Baskı Zeytinyağı Alana 2 Kg Jumbo Zeytin Hediye",
-                    detail: "Kavlak 5 Litre Taş Baskı Soğuk Sıkım Zeytinyağı Alana 2 Kg Jumbo Zeytin 10 TL! Üstelik Ücretsiz Kargo ile Kapınıza Teslim!",
-                    rate: 5,
-                    price: 289.90,
-                    code: "K0025",
-                    images: [
-                        "https://kavlak.com.tr/zeytinler/kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-ozel-fiyat.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 27
+            products: [{
+                    color: "Çağla",
+                    id: 13402,
+                    image: ["https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15190-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15191-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15192-37-O.jpg", "https://img.manuka.com.tr/kolu-buzgulu-kase-kaban-cagla-kaban-15193-37-O.jpg"],
+                    oldprice: 219.9,
+                    price: 197.91,
+                    size: ["1", "2"],
+                    title: "KOLU BÜZGÜLÜ KAŞE KABAN ÇAĞLA"
                 },
                 {
-                    id: "avlak-kuru-sele-siyah-zeytin-4-al-3-ode",
-                    categoryID: 1,
-                    name: "Kavlak Kuru Sele Siyah Zeytin 4 Al 3 Öde",
-                    detail: "Kavlak kuru sele siyah zeytin hiçbir kimyasal işleme tabi tutulmadan çevirme ve çuvallama yöntemiyle yalnızca tuz kullanılarak üretilir.",
-                    rate: 0,
-                    price: 199.90,
-                    code: "K0018",
-                    images: [
-                        "https://kavlak.com.tr/zeytinler/kavlak-kuru-sele-siyah-zeytin-4-al-3-ode.jpg"
-                    ],
-                    inStock: 500,
-                    indirim: 22
-                }
+                    color: "Gri",
+                    id: 13403,
+                    image: ["https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13920-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13921-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13922-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13923-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13925-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13924-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13926-32-O.jpg", "https://img.manuka.com.tr/genis-yakali-kaban-gri-kaban-0-13927-32-O.jpg"],
+                    oldprice: 300.99,
+                    price: 250.95,
+                    size: ["1", "2"],
+                    title: "GENİŞ YAKALI KABAN GRİ"
+                },
+                {
+                    color: "Bej",
+                    id: 13404,
+                    image: ["https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15816-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15175-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15176-37-O.jpg", "https://img.manuka.com.tr/dugmeli-ekose-kaban-bej-kaban-0-15177-37-O.jpg"],
+                    oldprice: 350.92,
+                    price: 320.5,
+                    size: ["1", "2"],
+                    title: "DÜĞMELİ EKOSE KABAN BEJ"
+                },
             ],
-            inCart:[
-                {
-                    id:0,
-                    pid:"kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-hediye",
-                    count:2
+            inCart: [{
+                    id: 0,
+                    pid: "13402",
+                    count: 2
                 },
                 {
-                    id:1,
-                    pid:"avlak-kuru-sele-siyah-zeytin-4-al-3-ode",
-                    count:1
+                    id: 1,
+                    pid: "13403",
+                    count: 1
+                },
+                {
+                    id: 2,
+                    pid: "13404",
+                    count: 3
                 }
             ]
         }
-        const { getCartTotalCost } = getters;
+        const { total } = getters;
         // mock getter
         // get the result from the getter
-        const result = getCartTotalCost(state)()
-        const expected = 779.6999999999999;
+        const result = total(state)()
+        const expected = 1608.27;
         // assert the result
         expect(result).toEqual(expected)
     })
