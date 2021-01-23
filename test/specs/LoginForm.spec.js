@@ -1,26 +1,25 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
-import RegisterForm from '../../components/uye_kayit'
-
+import LoginForm from '../../components/uye_giris'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-describe('RegisterForm', () => {
+describe('LoginForm', () => {
     let wrapper;
     const mockFunction = jest.fn();
     beforeEach(() => {
-        wrapper = mount(RegisterForm, {
+        wrapper = mount(LoginForm, {
             localVue,
             data() {
                 return {
-                    email: 'redirectTest@test.com',
-                    password: '123456',
+                    email: '',
+                    password: '',
                 };
             },
             store: new Vuex.Store({
                 actions: {
-                    register: mockFunction,
+                    login: mockFunction,
                 },
             }),
             mocks: {
@@ -30,18 +29,17 @@ describe('RegisterForm', () => {
             },
             stubs: {
                 NuxtLink: true,
-                ["router-view"]: true,
+                "router-view": true,
             }
         });
     });
 
-    describe('methods', () => {
-        describe('#Kayit işlemi', () => {
-            it('register fonksiyonun çağrılması', async() => {
-                await wrapper.vm.kayit();
+    describe('LoginForm', () => {
+        describe('#Giris yap işlemi', () => {
+            it('login fonksiyonun çağrılması', async() => {
+                await wrapper.vm.girisYap();
                 expect(mockFunction).toHaveBeenCalled();
             });
-
         });
     });
 });

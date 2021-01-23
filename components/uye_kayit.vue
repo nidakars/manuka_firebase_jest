@@ -711,12 +711,10 @@
                           </label>
                         </div>
                       </div>
-                      <div
-                        @click="register({ email, password })"
-                        class="col col-12"
-                      >
+                      <div @click="kayit()" class="col col-12">
                         <div class="row">
-                          <nuxt-link :to="'/giris_yapilan'"
+                          <nuxt-link
+                            :to="'/giris_yapilan'"
                             type="submit"
                             id="uye-kayit-btn"
                             class="btn col-12 btn-custom-pink text-upper text-center"
@@ -770,10 +768,16 @@ export default {
   },
   methods: {
     ...mapActions({
-      register: 'user/register',
-      login: 'user/login',
-      updateUser: 'user/updateData',
+      register: 'register',
+      login: 'login',
+      updateUser: 'updateData',
     }),
+    kayit() {
+      this.register({
+        email: this.email,
+        password: this.password,
+      })
+    },
     // signUp() {
     //   firebase
     //     .auth().createUserWithEmailAndPassword(this.email, this.password)
