@@ -778,27 +778,9 @@ export default {
         password: this.password,
       })
     },
-    // signUp() {
-    //   firebase
-    //     .auth().createUserWithEmailAndPassword(this.email, this.password)
-    //     .then((res) => {
-    //       alert('Kayıt başarılı')
-    //       this.$store.commit('user/setUser', this.email)
-    //       setTimeout(() => {
-    //         window.location.href = '/'
-    //       }, 1500)
-
-    //       this.error = false
-    //       this.success = true
-    //     })
-    //     .catch((err) => {
-    //       alert('Kayıt başarısız')
-    //       this.error = true
-    //     })
-    // },
-  },
-  focusActive() {
-    this.isFocus = !this.isFocus
+    focusActive() {
+      this.isFocus = !this.isFocus
+    },
   },
 }
 </script>
