@@ -1,24 +1,20 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
-import RegisterForm from '../../components/uye_kayit.vue'
+import KayitOl from '../../components/uye_kayit.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-describe('RegisterForm', () => {
+describe('KayitOl', () => {
     let wrapper;
     const mockFunction = jest.fn();
     beforeEach(() => {
-        wrapper = mount(RegisterForm, {
+        wrapper = mount(KayitOl, {
             localVue,
             data() {
                 return {
-
                     email: 'redirectTest@test.com',
                     password: '123456',
-                    ad: 'Test',
-                    soyad: 'Test',
-
                 };
             },
             store: new Vuex.Store({
@@ -30,24 +26,20 @@ describe('RegisterForm', () => {
                 $router: {
                     push: jest.fn()
                 }
+            },
+            stubs: {
+                NuxtLink: true,
+                ["router-view"]: true,
             }
         });
     });
 
-    describe('methods', () => {
-        describe('#Kayit işlemi', () => {
-            it('register fonksiyonun çağrılması', async() => {
-                await wrapper.vm.register();
+    describe('KayitOl', () => {
+        describe('Kayıt Olunabiliyor mu?', () => {
+            it('Register:', async() => {
+                await wrapper.vm.kayit();
                 expect(mockFunction).toHaveBeenCalled();
             });
-            /* 
-                  it("Successfull Register", () => {
-                    let registerButton = wrapper.find(".Kbtn");
-                    console.log = jest.fn();
-                    registerButton.trigger("click").then(() => {
-                      expect(console.log).toHaveBeenCalledWith('Kayıt Başarılı');
-                    });
-                  }); */
         });
     });
 });

@@ -3,8 +3,8 @@ import { mutations } from '../../store'
 // destructure assign `mutations`
 const { incrementTest } = mutations
 
-describe('mutation testi', () => {
-    it('INCREMENT', () => {
+describe('MUTATION', () => {
+    it('TEST', () => {
         // mock state
         const state = { testCount: 0 }
             // apply mutation

@@ -105,9 +105,10 @@
                     <span class="col ease placeholder">Güvenlik Kodu</span>
                   </div>
                 </div>
-                <div @click="girisYap(), giris()" class="box col-12">
+                <div @click="giris()" class="box col-12">
                   <div class="row">
                     <nuxt-link
+                      @click="girisYap()"
                       to="giris_yapilan"
                       data-prefix="pop-"
                       data-callback="popMemberLoginFn"
@@ -188,7 +189,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$store.getters['user/getUser'])
+    // console.log(this.$store.getters['user/getUser'])
   },
   methods: {
     focusActive() {
@@ -203,10 +204,7 @@ export default {
       updateUser: 'updateData',
     }),
     girisYap() {
-      this.login({
-        email: this.email,
-        password: this.password,
-      })
+      this.login({ email: this.email, password: this.password })
     },
     // login() {
     //   firebase.auth()

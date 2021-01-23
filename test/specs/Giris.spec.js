@@ -1,25 +1,25 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
-import LoginForm from '../../components/uye_giris'
+import KayitOl from '../../components/uye_kayit.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-describe('LoginForm', () => {
+describe('KayitOl', () => {
     let wrapper;
     const mockFunction = jest.fn();
     beforeEach(() => {
-        wrapper = mount(LoginForm, {
+        wrapper = mount(KayitOl, {
             localVue,
             data() {
                 return {
-                    email: '',
-                    password: '',
+                    email: 'redirectTest@test.com',
+                    password: '123456',
                 };
             },
             store: new Vuex.Store({
                 actions: {
-                    login: mockFunction,
+                    register: mockFunction,
                 },
             }),
             mocks: {
@@ -34,10 +34,10 @@ describe('LoginForm', () => {
         });
     });
 
-    describe('LoginForm', () => {
-        describe('#Giris yap işlemi', () => {
-            it('login fonksiyonun çağrılması', async() => {
-                await wrapper.vm.girisYap();
+    describe('KayitOl', () => {
+        describe('Kayıt Olunabiliyor mu?', () => {
+            it('Register:', async() => {
+                await wrapper.vm.kayit();
                 expect(mockFunction).toHaveBeenCalled();
             });
         });

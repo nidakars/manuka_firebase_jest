@@ -1,7 +1,7 @@
 import { getters } from '../../store'
 
-describe('getProductWithId', () => {
-    it('id si belirtilen ürünü getirme', () => {
+describe('Ürün Çekme', () => {
+    it('IDsi verilen ürün geliyor mu? ', () => {
         // mock state
         const state = {
             products: [{
@@ -88,8 +88,8 @@ describe('getProductWithId', () => {
 
 
 
-describe('formatPrice', () => {
-        it('Sayıyı virgüllü hale dönüştür', () => {
+describe('Fiyat Formatlama', () => {
+        it('Fiyat İstenilen Formatta Getiriliyor mu?', () => {
             // mock state       
             const { formatPrice } = getters;
             // mock getter

@@ -48,6 +48,7 @@
               Sil
             </div>
           </div>
+          <div>Sepet Listesi</div>
           <div
             v-for="item in basket"
             :key="'basket' + item.id"
