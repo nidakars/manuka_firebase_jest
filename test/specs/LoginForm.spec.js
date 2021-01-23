@@ -29,7 +29,7 @@ describe('LoginForm', () => {
             },
             stubs: {
                 NuxtLink: true,
-                "router-view": true,
+                ["router-view"]: true,
             }
         });
     });

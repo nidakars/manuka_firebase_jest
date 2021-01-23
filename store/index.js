@@ -193,7 +193,10 @@ export const state = () => ({
 //     }
 // };
 /////////////////////////////////////////////////////////////
+import Vue from 'vue'
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
 import firebase from "firebase";
 import { realDb, auth } from '../plugins/firebase.js';
 
