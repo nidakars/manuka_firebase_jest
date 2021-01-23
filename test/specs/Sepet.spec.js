@@ -1,26 +1,46 @@
-import { mount, createLocalVue, config, shallowMount } from "@vue/test-utils";
-import Sepet from "../../components/sepet";
-import { getters, mutations, actions, state } from "../../store/basket";
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
+import Vue from 'vue'
+Vue.config.ignoredElements = ['b-field', 'b-autocomplete']
+import Vuex from 'vuex';
+import '../firebase'
+import KayitOl from '../../components/uye_kayit.vue'
 
-config.mocks["$store"] = {
-    state: {...state },
-    getters: {
-        "basket/getBasketItems": {...state }
-    },
-    actions: {
-        "removeBasketItem": {...actions }
-    },
-    mutations: {
-        ...mutations
-    },
-    stubs: {
-        NuxtLink: true,
-    }
-};
-describe("Sepet.vue", () => {
-    it("Render", () => {
-        let wrapper = shallowMount(Sepet);
-        expect(wrapper.text()).toContain("Sepet Listesi");
+const localVue = createLocalVue()
+localVue.use(Vuex)
+describe('KayitOl', () => {
+    let wrapper;
+    const mockFunction = jest.fn();
+    beforeEach(() => {
+        wrapper = mount(KayitOl, {
+            localVue,
+            data() {
+                return {
+                    email: 'redirectTest@test.com',
+                    password: '123456',
+                };
+            },
+            store: new Vuex.Store({
+                actions: {
+                    register: mockFunction,
+                },
+            }),
+            mocks: {
+                $router: {
+                    push: jest.fn()
+                }
+            },
+            stubs: {
+                NuxtLink: RouterLinkStub
+            }
+        });
+    });
 
+    describe('KayitOl', () => {
+        describe('Kayıt Olunabiliyor mu?', () => {
+            it('Register:', async() => {
+                await wrapper.vm.kayit();
+                expect(mockFunction).toHaveBeenCalled();
+            });
+        });
     });
 });

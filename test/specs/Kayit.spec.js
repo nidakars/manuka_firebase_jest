@@ -1,4 +1,6 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
+import Vue from 'vue'
+Vue.config.ignoredElements = ['b-field', 'b-autocomplete']
 import Vuex from 'vuex';
 import '../firebase'
 import KayitOl from '../../components/uye_kayit.vue'
@@ -28,8 +30,7 @@ describe('KayitOl', () => {
                 }
             },
             stubs: {
-                NuxtLink: true,
-                ["router-view"]: true,
+                NuxtLink: RouterLinkStub
             }
         });
     });

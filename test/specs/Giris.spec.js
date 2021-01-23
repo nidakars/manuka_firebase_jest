@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 import Vuex from 'vuex';
 import '../firebase'
 import KayitOl from '../../components/uye_kayit.vue'
@@ -28,8 +28,7 @@ describe('KayitOl', () => {
                 }
             },
             stubs: {
-                NuxtLink: true,
-                ["router-view"]: true,
+                NuxtLink: RouterLinkStub
             }
         });
     });
