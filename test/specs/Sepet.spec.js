@@ -1,27 +1,23 @@
-import { mount, config } from "@vue/test-utils";
-import Sepettekiler from "../../components/Sepet.vue";
-import { mutations, actions, state } from "../../store/index";
+import { mount, createLocalVue, config, shallowMount } from "@vue/test-utils";
+import sepet from "../../components/sepet.vue";
+import { getters, mutations, actions, state } from "../../store/basket";
 
 config.mocks["$store"] = {
     state: {...state },
     getters: {
-        "getCartTotalCost": {...state },
-        "formatPrice": {...state },
-        "getCartTotalCount": {...state },
+        "basket/getBasketItems": {...state }
     },
-    /* 
-      actions: {
-        "fetchProducts": { ...actions },
-        "fetchCartItems": { ...actions }
-      }, */
+    actions: {
+        "basket/removeBasketItem": {...actions }
+    },
     mutations: {
         ...mutations
     }
 };
-//
-describe("Sepet.vue", () => {
-    it("Sepete veriler gelmediğinde, Sepetinizde herhangi bir ürün bulunmamaktadır yazısı gelmesi", () => {
-        let wrapper = mount(Sepet);
-        expect(wrapper.text()).toContain("Sepetinizde herhangi bir ürün bulunmamaktadır.");
+
+describe("sepet.vue", () => {
+    it("Render", () => {
+        let wrapper = shallowMount(sepet);
+        expect(wrapper.text()).toContain("Sepet Listesi");
     });
 });
