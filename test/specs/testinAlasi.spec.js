@@ -35,6 +35,7 @@ describe("mainMenu.vue", () => {
         expect(wrapper).toMatchSnapshot();
     });
     it("button var mı?", () => {
-        expect(wrapper.contains("button")).toBe(true);
+        const button = wrapper.find('button')
+        expect(button.exists()).toBe(true);
     });
 });
