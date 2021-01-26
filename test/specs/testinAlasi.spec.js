@@ -31,5 +31,8 @@ describe("mainMenu.vue", () => {
         expect(div.exists()).toBe(true)
     });
 
+    test("snapshot testi", () => {
+        expect(wrapper).toMatchSnapshot();
+    });
 
 });

@@ -33,12 +33,17 @@ describe('KayitOl', () => {
         });
     });
 
+
     describe('KayitOl', () => {
         describe('Kayıt Olunabiliyor mu?', () => {
             it('Register:', async() => {
                 await wrapper.vm.kayit();
                 expect(mockFunction).toHaveBeenCalled();
             });
+            test("snapshot2", () => {
+                expect(wrapper).toMatchSnapshot();
+            });
+
         });
     });
 });

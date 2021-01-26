@@ -41,6 +41,11 @@ describe('KayitOl', () => {
                 await wrapper.vm.kayit();
                 expect(mockFunction).toHaveBeenCalled();
             });
+
+            test("snapshot4", () => {
+                expect(wrapper).toMatchSnapshot();
+            });
+
         });
     });
 });

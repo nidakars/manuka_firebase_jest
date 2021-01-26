@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sepet.vue Sepet Listesi snapshot3 1`] = `
+<div class="row mb">
+  <div id="pageHeader" class="fl col-12 lightBg"><span class="col col-3 col-sm-12 pageTitle passed"><span class="row basket"> SEPET </span></span> <span class="col col-3 col-sm-12 pageTitle"><span class="row address"> FATURA TESLİMAT </span></span> <span class="col col-3 col-sm-12 pageTitle"><span class="row payment"> ÖDEME </span></span> <span class="col col-3 col-sm-12 pageTitle"><span class="row confirm"> ONAY </span></span></div>
+  <div class="box col-12 progress"><span class="fw600 a-center ease progress-bar" style="width: 25%;">25%</span></div>
+  <form name="SepetForm" id="SepetForm" action="Sepet.php" method="GET" class="box col-12 basketWrapper">
+    <div class="fl col-12">
+      <div class="fl col-12 middleItem">
+        <div class="col col-12 line-bottom dn-xs">
+          <div class="box col-2 dn-xs text-description text-semibold">
+            Ürün
+          </div>
+          <div class="box col-5 col-sm-5 col-xs-7 text-description text-semibold">
+            Ürün Adı
+          </div>
+          <div class="box col-2 text-description text-semibold">Adet</div>
+          <div class="box col-2 text-description text-semibold text-center AdetFiyatBaslik">
+            Birim Fiyat
+          </div>
+          <div class="box col-1 text-description text-semibold text-right">
+            Sil
+          </div>
+        </div>
+        <div>Sepet Listesi</div> <input type="hidden" name="AltUrun[]" id="AltUrun[]" value="">
+      </div>
+      <div class="box col-12 p-bottom">
+        <div class="row">
+          <div class="col col-12 line-bottom line-left">
+            <div id="basketBtns" class="row"><a href="#" data-width="500" data-url="/srv/service/content/get/1054/general-order-note" class="NotEkle popupWin btn btn-small col-sm-6 col-xs-12 btn-custom-light-gray text-center dn-sm"><span>Sipariş Notu Ekle</span></a> <a class="btn btn-small col-sm-6 col-xs-12 text-center btn-custom-light-gray">
+                Sepeti Temizle
+              </a> <a class="btn btn-small col-sm-6 col-xs-12 text-center btn-custom-light-gray">
+                Alışverişe Devam
+              </a> <a data-width="500" data-url="/srv/service/customer/login-form" class="popupWin btn btn-small col-sm-6 col-xs-12 btn-custom-light-gray text-center">
+                Alışveriş Listeme Ekle
+              </a> <a onclick="if ($(this).data('disabled') == 1) {
+                                          return false;
+                                      }
+                                      $(this).data('disabled', 1);" title="Sepet de herhangi bir değişiklik yaptıysanız, alışverişe devam etmeden mutlaka bu butona basıp güncelleme yapmanız gerekir." id="updateBasket" class="btn btn-small col-sm-6 col-xs-12 btn-custom-light-gray text-center">
+                Sepeti Güncelle
+              </a></div>
+          </div>
+          <div class="col col-3 col-md-6 col-sm-12 fr">
+            <div class="row">
+              <div class="col col-12">
+                <div class="row box-border b-top">
+                  <div class="box col-6 line-right">Sepet Toplamı</div>
+                  <div class="box col-6 a-right">0.00 TL</div>
+                </div>
+                <div class="row mb box-border b-top">
+                  <div class="box col-6 line-right">Genel Toplam</div>
+                  <div class="box col-6 a-right">0.00 TL</div>
+                </div>
+              </div> <a id="guzellikBtn" class="fr"></a>
+            </div>
+          </div>
+          <div class="col col-9 col-md-6 col-sm-12 CuponsBox">
+            <div class="row">
+              <div class="box col-12 p-bottom">
+                <div id="basketOptions" class="row">
+                  <div class="col col-12 p-left">
+                    <div class="col col-12">
+                      <div class="row mb"><label for="indirimkuponu" class="box col-12 form-control large lightBg"><span class="btn btn-medium btn-upper col-12"><span class="row text-title">
+                              İndirim Kuponu
+                            </span></span> <span class="fl col-12"><span class="col col-8 p-left"><input type="text" name="indirimkuponu" id="indirimkuponu" value="" class="fl col-12"></span> <a name="indirim" id="indirim" class="btn btn-medium btn-custom-gray text-center text-upper col-4">Uygula</a></span></label></div>
+                    </div>
+                  </div>
+                  <div class="col col-6 col-sm-12 p-left">
+                    <div class="col col-12 lightBg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-12">
+        <div class="row">
+          <div id="cart-footer" class="fl col-12 d-flex">
+            <div class="box col-9 col-md-6 col-sm-12 p-top p-left">
+              <div class="col col-12 p-left">
+                <div id="messages" class="fl col-12 danger">
+                  <div class="row"></div>
+                </div>
+              </div>
+              <p class="fl col-12">
+                Sepetinizde değişiklik yaptıysanız
+                <b>güncellemeyi unutmayın.</b> Ödeme ve onay sayfasına kadar
+                satın alma işleminizi <b>iptal edebilirsiniz.</b>
+              </p>
+            </div>
+            <div class="col col-3 col-md-6 col-sm-12">
+              <div class="row mb"><a href="/uye_giris" title="Fatura ve adres bilgilerinizi girip alışverişinize devam etmek için bu butonu tıklayınız." id="addCartBtn" class="btn btn-big col-12 btn-custom-pink text-center text-upper buyBtn">
+                  Satın Al
+                </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

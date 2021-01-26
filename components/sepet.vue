@@ -303,9 +303,6 @@ export default {
   },
   created() {},
   computed: {
-    basket() {
-      return this.$store.getters['basket/getBasketItems']
-    },
     subtotal() {
       let total = 0
       for (let i = 0; i < this.basket.length; i++) {
@@ -322,6 +319,9 @@ export default {
     },
   },
   methods: {
+    basket() {
+      return this.$store.getters['basket/getBasketItems']
+    },
     removeBasketItem(id) {
       this.$store.dispatch('basket/removeBasketItem', id)
     },

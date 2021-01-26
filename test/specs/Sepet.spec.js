@@ -16,10 +16,18 @@ config.mocks["$store"] = {
 };
 
 describe("sepet.vue", () => {
-    it("Render", () => {
-        let wrapper = shallowMount(sepet, { stubs: { NuxtLink: RouterLinkStub } }
+    let wrapper;
+    wrapper = shallowMount(sepet, {
+            stubs: { NuxtLink: RouterLinkStub }
+        }
 
-        );
-        expect(wrapper.text()).toContain("Sepet Listesi");
+    );
+    describe('Sepet Listesi', () => {
+        it("Render", () => {
+            expect(wrapper.text()).toContain("Sepet Listesi");
+        });
+        test("snapshot3", () => {
+            expect(wrapper).toMatchSnapshot();
+        });
     });
 });
