@@ -1,46 +1,27 @@
-import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
-import Vue from 'vue'
-Vue.config.ignoredElements = ['b-field', 'b-autocomplete']
-import Vuex from 'vuex';
-import '../firebase'
-import KayitOl from '../../components/uye_kayit.vue'
+import { mount, config } from "@vue/test-utils";
+import Sepettekiler from "../../components/Sepet.vue";
+import { mutations, actions, state } from "../../store/index";
 
-const localVue = createLocalVue()
-localVue.use(Vuex)
-describe('KayitOl', () => {
-    let wrapper;
-    const mockFunction = jest.fn();
-    beforeEach(() => {
-        wrapper = mount(KayitOl, {
-            localVue,
-            data() {
-                return {
-                    email: 'redirectTest@test.com',
-                    password: '123456',
-                };
-            },
-            store: new Vuex.Store({
-                actions: {
-                    register: mockFunction,
-                },
-            }),
-            mocks: {
-                $router: {
-                    push: jest.fn()
-                }
-            },
-            stubs: {
-                NuxtLink: RouterLinkStub
-            }
-        });
-    });
-
-    describe('KayitOl', () => {
-        describe('Kayıt Olunabiliyor mu?', () => {
-            it('Register:', async() => {
-                await wrapper.vm.kayit();
-                expect(mockFunction).toHaveBeenCalled();
-            });
-        });
+config.mocks["$store"] = {
+    state: {...state },
+    getters: {
+        "getCartTotalCost": {...state },
+        "formatPrice": {...state },
+        "getCartTotalCount": {...state },
+    },
+    /* 
+      actions: {
+        "fetchProducts": { ...actions },
+        "fetchCartItems": { ...actions }
+      }, */
+    mutations: {
+        ...mutations
+    }
+};
+//
+describe("Sepet.vue", () => {
+    it("Sepete veriler gelmediğinde, Sepetinizde herhangi bir ürün bulunmamaktadır yazısı gelmesi", () => {
+        let wrapper = mount(Sepet);
+        expect(wrapper.text()).toContain("Sepetinizde herhangi bir ürün bulunmamaktadır.");
     });
 });
