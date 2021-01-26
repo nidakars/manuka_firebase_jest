@@ -9,6 +9,9 @@
         "generate": "nuxt generate",
         "test": "jest"
     },
+    "jest": {
+        "snapshotSerializers": ["jest-serializer-vue"]
+    },
     "dependencies": {
         "@nuxtjs/axios": "^5.12.5",
         "@nuxtjs/firebase": "^7.3.0",
