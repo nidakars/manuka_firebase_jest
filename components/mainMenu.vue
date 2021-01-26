@@ -793,13 +793,14 @@ ul {
 }
 </style>
 <script>
+import { mapActions } from 'vuex'
 export default {
   data: () => {
     return {}
   },
   created() {},
   computed: {
-    basket() {
+    /* basket() {
       return this.$store.getters['basket/getBasketItems']
     },
     totalBasketItemCount() {
@@ -808,8 +809,19 @@ export default {
         count += this.basket[i].count
       }
       return count
+    },*/
+  },
+  methods: {
+    ...mapActions({
+      basket: 'getBasketItems',
+    }),
+    totalBasketItemCount() {
+      let count = 0
+      for (let i = 0; i < this.basket.length; i++) {
+        count += this.basket[i].count
+      }
+      return count
     },
   },
-  methods: {},
 }
 </script>

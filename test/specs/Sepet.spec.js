@@ -1,4 +1,4 @@
-import { mount, createLocalVue, config, shallowMount } from "@vue/test-utils";
+import { mount, createLocalVue, config, shallowMount, RouterLinkStub } from "@vue/test-utils";
 import sepet from "../../components/sepet.vue";
 import { getters, mutations, actions, state } from "../../store/basket";
 
@@ -17,7 +17,9 @@ config.mocks["$store"] = {
 
 describe("sepet.vue", () => {
     it("Render", () => {
-        let wrapper = shallowMount(sepet);
+        let wrapper = shallowMount(sepet, { stubs: { NuxtLink: RouterLinkStub } }
+
+        );
         expect(wrapper.text()).toContain("Sepet Listesi");
     });
 });
