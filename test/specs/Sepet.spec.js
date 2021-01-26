@@ -29,5 +29,11 @@ describe("sepet.vue", () => {
         test("snapshot3", () => {
             expect(wrapper).toMatchSnapshot();
         });
+        it("html'e göre", () => {
+            expect(wrapper.html()).toContain(
+                " <b>güncellemeyi unutmayın.</b>"
+            );
+        });
+
     });
 });

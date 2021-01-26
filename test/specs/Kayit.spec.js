@@ -46,6 +46,8 @@ describe('KayitOl', () => {
                 expect(wrapper).toMatchSnapshot();
             });
 
+
+
         });
     });
 });

@@ -34,5 +34,7 @@ describe("mainMenu.vue", () => {
     test("snapshot testi", () => {
         expect(wrapper).toMatchSnapshot();
     });
-
+    it("button var mı?", () => {
+        expect(wrapper.contains("button")).toBe(true);
+    });
 });
